@@ -11,7 +11,7 @@ class MySQL implements ManejadorBDInterface
         $this->_host="localhost";
         $this->_user="root";
         $this->_pass="";
-        $this->_database="bdtecno";
+        $this->_database="bdtecno2023";
         $this->_charset="utf8";
     }
      

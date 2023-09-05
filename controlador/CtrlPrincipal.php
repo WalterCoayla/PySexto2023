@@ -7,7 +7,8 @@ class CtrlPrincipal extends Controlador {
         # echo "Hola mundo";
         $datos = [
             'titulo'=>'Sexto Semestre',
-            'usuario'=>'Walter'
+            'usuario'=>'Walter',
+            'menu'=>$this->getMenu()
         ];
         $this->mostrar('home.php',$datos);
         /* $obj = new Oficina();
@@ -26,11 +27,11 @@ class CtrlPrincipal extends Controlador {
 
     }
 
-    /* public function getMenu(){
+    public function getMenu(){
         return [
             'CtrlCargo'=>'Cargos',
             'CtrlOficina'=>'Oficinas',
             'CtrlFactorForma'=>'Factores de Forma',
         ];
-    } */
+    }
 }
