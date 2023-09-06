@@ -16,6 +16,7 @@
             <th>Opciones</th>
         </tr>
 <?php
+if (is_array($datos))
 foreach ($datos as $d) {
     ?>
 <tr>

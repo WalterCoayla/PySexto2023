@@ -14,4 +14,25 @@ class Cargo extends Modelo {
     public function getTodo(){
         return $this->getAll();
     }
+    public function eliminar(){
+        return $this->deleteById($this->id);
+    }
+    public function guardar(){
+        $datos = [
+            'id'=>$this->id,
+            'nombre'=>"'$this->nombre'",
+        ];
+        return $this->insert($datos);
+    }
+    public function editar(){
+        return $this->getById($this->id);
+    }
+    public function actualizar(){
+        $datos = [
+            'id'=>$this->id,
+            'nombre'=>"'$this->nombre'",
+        ];
+        $wh = "id=$this->id";
+        return $this->update($wh,$datos);
+    }
 }
