@@ -30,8 +30,10 @@ class CtrlPrincipal extends Controlador {
     public function getMenu(){
         return [
             'CtrlCargo'=>'Cargos',
-            'CtrlOficina'=>'Oficinas',
-            'CtrlFactorForma'=>'Factores de Forma',
+            'CtrlEstado'=>'Estados',
+           #  'CtrlFactorForma'=>'Factores de Forma',
+            'CtrlCtaContable'=>'Cuentas Contables',
+            'CtrlConceptoPago'=>'Conceptos de Pago',
         ];
     }
 }
