@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once './core/Controlador.php';
 require_once './modelo/Cargo.php';
 
@@ -11,11 +12,19 @@ class CtrlCargo extends Controlador {
         # var_dump($data);exit;
 
         $datos = [
-            'titulo'=>'Cargos',
+            
             'datos'=>$data['data']
         ];
 
-        $this->mostrar('cargos/mostrar.php',$datos);
+        $home = $this->mostrar('cargos/mostrar.php',$datos,true);
+
+        $datos= [
+            'titulo'=>'Cargos',
+            'contenido'=>$home,
+            'menu'=>$_SESSION['menu']
+        ];
+    $this->mostrar('./plantilla/home.php',$datos);
+
     }
 
     public function eliminar(){
@@ -28,7 +37,13 @@ class CtrlCargo extends Controlador {
     }
     public function nuevo(){
         # echo "Agregando..";
-        $this->mostrar('cargos/formulario.php');
+        $datos= [
+            'titulo'=>'Nuevo Cargo',
+            'contenido'=>$this->mostrar('cargos/formulario.php',null,true),
+            'menu'=>$_SESSION['menu']
+        ];
+    $this->mostrar('./plantilla/home.php',$datos);
+        
     }
     public function editar(){
         $id = $_GET['id'];
@@ -39,7 +54,15 @@ class CtrlCargo extends Controlador {
         $datos = [
             'datos'=>$data['data'][0]
         ];
-        $this->mostrar('cargos/formulario.php',$datos);
+        $home = $this->mostrar('cargos/formulario.php',$datos,true);
+
+         $datos= [
+            'titulo'=>'Editar Cargo',
+            'contenido'=>$home,
+            'menu'=>$_SESSION['menu']
+        ];
+    $this->mostrar('./plantilla/home.php',$datos);
+        
     }
     public function guardar(){
         # echo "Guardando..";

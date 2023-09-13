@@ -19,6 +19,12 @@ class EntidadBase
     public function setTabla($tabla){
         $this->_tabla = (string) $tabla;
     }
+    public function setSql($sql){
+        $this->_sql->setSQL($sql);
+    }
+    public function ejecutarSql(){
+        return $this->_bd->ejecutar($this->_sql);
+    }
 
     public function getAll(){
         $this->_sql->setTabla($this->_tabla);

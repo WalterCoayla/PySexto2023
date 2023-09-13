@@ -6,6 +6,7 @@ class SQL
     private $_colDatos;
 
     private $_comando;
+    private $sql = null;
 
     # private $_colOrden;
     
