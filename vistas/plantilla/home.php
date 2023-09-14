@@ -16,13 +16,16 @@
 
 
 <?php    
-require_once "./vistas/plantilla/nav.php";
-require_once "./vistas/plantilla/aside.php";
+# require_once "./vistas/plantilla/nav.php";
+Vista::mostrar('plantilla/nav.php');
+Vista::mostrar('plantilla/aside.php');
+# require_once "./vistas/plantilla/aside.php";
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <?php    
     require_once "./vistas/plantilla/pageHeader.php";
+    # Vista::mostrar('plantilla/pageHeader.php');
     ?>
     <!-- Main content -->
     <section class="content">
@@ -32,7 +35,8 @@ require_once "./vistas/plantilla/aside.php";
     </section>
   </div>
   <?php    
-    require_once "./vistas/plantilla/footer.php";
+    # require_once "./vistas/plantilla/footer.php";
+    Vista::mostrar('plantilla/footer.php');
     ?>
 </div>
 </body>

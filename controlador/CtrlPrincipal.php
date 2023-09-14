@@ -31,6 +31,7 @@ class CtrlPrincipal extends Controlador {
            #  'CtrlFactorForma'=>'Factores de Forma',
             'CtrlCtaContable'=>'Cuentas Contables',
             'CtrlConceptoPago'=>'Conceptos de Pago',
+            'CtrlEstudiante'=>'Estudiante',
         ];
     }
 }
