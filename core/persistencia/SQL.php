@@ -21,6 +21,9 @@ class SQL
     public function getTabla(){
         return $this->_tabla;
     }
+    public function setSQL($sql){
+        $this->sql=$sql;
+    }
     public function addWhere($wh){
         $this->_colWhere[]=$wh;
     }
@@ -94,6 +97,9 @@ class SQL
 
     public function __toString(){
         $retorno=null;
+        if ($this->sql!=null){
+            return $this->sql;
+        }else
         switch ($this->_comando) {
             case 'INSERT':
                 $retorno = $this->getINSERT();

@@ -40,6 +40,7 @@ $esNuevo = isset($datos['id'])?0:1;
         Programa de estudios:
         <select name="idPrograma">
             <?php
+            
             if (is_array($programas))
             foreach ($programas as $p) {
                 $selected = ($p['id']==$idPrograma)?'selected':'';
@@ -51,12 +52,20 @@ $esNuevo = isset($datos['id'])?0:1;
         </select>
         
         <br>
-        Genero: <?=($genero)?><br>
-        
-        <input  type="radio" name="genero" <?=($genero==0)?'checked':''?> value="0">Masculino
+        Genero: <br>
+        <div class="form-group clearfix">
+        <div class="icheck-primary d-inline">
+        <input  type="radio" id="id1" name="genero" <?=($genero==0)?'checked':''?> value="0">
+        <label for="id1">Masculino</label>
+        </div>
         <br>
-        <input  type="radio" name="genero" <?=($genero==1)?'checked':''?> value="1">Femenino
+        <div class="icheck-primary d-inline">
+        <input  type="radio" id="id2" name="genero" <?=($genero==1)?'checked':''?> value="1">
+        <label for="id2">Femenino</label>
+        </div>
         <br>
+        </div>
+
         <input class="btn btn-primary mb-3" type="submit" value="Guardar">
 
     </form>

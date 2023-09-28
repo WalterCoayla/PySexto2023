@@ -7,10 +7,10 @@ require_once './core/Controlador.php';
 class CtrlPrincipal extends Controlador {
 
     public function index(){
-        $_SESSION['menu'] = $this->getMenu();
+        # $_SESSION['menu'] = $this->getMenu();
         $datos= [
             'contenido'=>$this->mostrar('principal.php',null,true),
-            'menu'=> $_SESSION['menu']
+            # 'menu'=> $_SESSION['menu']
         ];
     $this->mostrar('./plantilla/home.php',$datos);
         # echo "Hola mundo";
@@ -24,7 +24,7 @@ class CtrlPrincipal extends Controlador {
 
     }
 
-    public function getMenu(){
+    /* public function getMenu(){
         return [
             'CtrlCargo'=>'Cargos',
             'CtrlEstado'=>'Estados',
@@ -33,5 +33,5 @@ class CtrlPrincipal extends Controlador {
             'CtrlConceptoPago'=>'Conceptos de Pago',
             'CtrlEstudiante'=>'Estudiante',
         ];
-    }
+    } */
 }
