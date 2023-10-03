@@ -2,10 +2,12 @@
 session_start();
 require_once './core/Controlador.php';
 require_once './modelo/Cargo.php';
+require_once './assets/Helper.php';
 
 class CtrlCargo extends Controlador {
     public function index(){
         # echo "Hola Cargo";
+        Helper::verificarLogin();
         $obj = new Cargo;
         $data = $obj->getTodo();
 
@@ -28,6 +30,7 @@ class CtrlCargo extends Controlador {
     }
 
     public function eliminar(){
+        Helper::verificarLogin();
         $id = $_GET['id'];
         # echo "eliminando: ".$id;
         $obj =new Cargo ($id);
@@ -36,6 +39,7 @@ class CtrlCargo extends Controlador {
         $this->index();
     }
     public function nuevo(){
+        Helper::verificarLogin();
         # echo "Agregando..";
         $datos= [
             'titulo'=>'Nuevo Cargo',
@@ -46,6 +50,7 @@ class CtrlCargo extends Controlador {
         
     }
     public function editar(){
+        Helper::verificarLogin();
         $id = $_GET['id'];
         # echo "Editando: ".$id;
         $obj = new Cargo($id);
@@ -65,6 +70,7 @@ class CtrlCargo extends Controlador {
         
     }
     public function guardar(){
+        Helper::verificarLogin();
         # echo "Guardando..";
         # var_dump($_POST);
         $id = $_POST['id'];
@@ -82,10 +88,9 @@ class CtrlCargo extends Controlador {
                 $data=$obj->guardar();
                 break;
         }
-
-        
         # var_dump($data);exit;
         $this->index();
-
     }
+
+    
 }
