@@ -2,6 +2,7 @@
 session_start();
 require_once './core/Controlador.php';
 require_once './modelo/Persona.php';
+require_once './assets/Helper.php';
 
 class CtrlPersona extends Controlador {
     public function index(){
@@ -20,10 +21,11 @@ class CtrlPersona extends Controlador {
         $login = $_POST['usuario'];
         $clave = $_POST['clave'];
         $obj = new Persona();
-        $data = $obj->validar($login, $clave)['data'];
+        $data = $obj->validar($login, $clave);
 
         # var_dump($data);exit;
-        if (! is_null($data)){
+
+        /* if (! is_null($data)){
             $_SESSION['id']=$data[0]['id'];
             $_SESSION['usuario']=$data[0]['usuario'];
             $_SESSION['nombre']=$data[0]['nombres'] . ' '. $data[0]['apellidos'];
@@ -33,7 +35,25 @@ class CtrlPersona extends Controlador {
             # var_dump($_SESSION);exit;
         }
         header("Location: ?");
+ */
+# var_dump($data);exit;
+        if (is_null($data)){    #No existe el usuario
+            header("Location: ?");
+        } else {    #Mostrar las opciones del perfil disponibles
+            
+            $datos = [
+            'data'=>$data
+            ];
+            $home = $this->mostrar('personas/opcionesPerfil.php',$datos,true);
 
+
+            $datos= [
+            'titulo'=>'Opcines de Perfil',
+            'contenido'=>$home,
+            'menu'=>$_SESSION['menu']
+                ];
+            $this->mostrar('./plantilla/home.php',$datos);
+        }
 
     }
     public function logout(){
@@ -49,6 +69,19 @@ class CtrlPersona extends Controlador {
             'CtrlConceptoPago'=>'Conceptos de Pago',
             'CtrlEstudiante'=>'Estudiante',
         ];
+    }
+
+    public function accederModulo(){
+        $idModulo = $_GET['idModulo'];
+        $idPerfil = $_GET['idPerfil'];
+        $idPersona = $_GET['id'];
+
+
+        $_SESSION['menu']= Helper::getMenu($idModulo,$idPerfil);
+
+       # var_dump($_SESSION['menu']);exit;
+
+        header("Location: ?");
     }
 }
         
