@@ -42,14 +42,16 @@ class CtrlCargo extends Controlador {
     public function nuevo(){
         Helper::verificarLogin();
         # echo "Agregando..";
-        $msg='';
+        /* $msg='';
         $datos= [
             'titulo'=>'Nuevo Cargo',
             'contenido'=>$this->mostrar('cargos/formulario.php',null,true),
             'menu'=>$_SESSION['menu'],
             'msg'=>$msg
         ];
-    $this->mostrar('./plantilla/home.php',$datos);
+    $this->mostrar('./plantilla/home.php',$datos); */
+
+    $this->mostrar('cargos/formulario.php');
         
     }
     public function editar(){
@@ -63,7 +65,7 @@ class CtrlCargo extends Controlador {
         $datos = [
             'datos'=>$data['data'][0]
         ];
-        $home = $this->mostrar('cargos/formulario.php',$datos,true);
+        /* $home = $this->mostrar('cargos/formulario.php',$datos,true);
 
          $datos= [
             'titulo'=>'Editar Cargo',
@@ -71,7 +73,8 @@ class CtrlCargo extends Controlador {
             'menu'=>$_SESSION['menu'],
             'msg'=>$msg
         ];
-    $this->mostrar('./plantilla/home.php',$datos);
+    $this->mostrar('./plantilla/home.php',$datos); */
+    $this->mostrar('cargos/formulario.php',$datos);
         
     }
     public function guardar(){
