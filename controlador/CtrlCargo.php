@@ -12,7 +12,7 @@ class CtrlCargo extends Controlador {
         $data = $obj->getTodo();
 
         # var_dump($data);exit;
-
+        $msg=$data['msg'];
         $datos = [
             
             'datos'=>$data['data']
@@ -23,7 +23,8 @@ class CtrlCargo extends Controlador {
         $datos= [
             'titulo'=>'Cargos',
             'contenido'=>$home,
-            'menu'=>$_SESSION['menu']
+            'menu'=>$_SESSION['menu'],
+            'msg'=>$msg
         ];
     $this->mostrar('./plantilla/home.php',$datos);
 
@@ -41,10 +42,12 @@ class CtrlCargo extends Controlador {
     public function nuevo(){
         Helper::verificarLogin();
         # echo "Agregando..";
+        $msg='';
         $datos= [
             'titulo'=>'Nuevo Cargo',
             'contenido'=>$this->mostrar('cargos/formulario.php',null,true),
-            'menu'=>$_SESSION['menu']
+            'menu'=>$_SESSION['menu'],
+            'msg'=>$msg
         ];
     $this->mostrar('./plantilla/home.php',$datos);
         
@@ -56,6 +59,7 @@ class CtrlCargo extends Controlador {
         $obj = new Cargo($id);
         $data = $obj->editar();
         # var_dump($data);exit;
+        $msg=$data['msg'];
         $datos = [
             'datos'=>$data['data'][0]
         ];
@@ -64,7 +68,8 @@ class CtrlCargo extends Controlador {
          $datos= [
             'titulo'=>'Editar Cargo',
             'contenido'=>$home,
-            'menu'=>$_SESSION['menu']
+            'menu'=>$_SESSION['menu'],
+            'msg'=>$msg
         ];
     $this->mostrar('./plantilla/home.php',$datos);
         

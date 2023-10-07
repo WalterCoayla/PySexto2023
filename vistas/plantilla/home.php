@@ -10,8 +10,13 @@
   <link rel="stylesheet" href="./assets/css/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="./assets/css/icheck.css">
  <!-- Theme style -->
+ <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/jquery-toast.css">
   <link rel="stylesheet" href="./assets/css/adminlte.min.css">
 </head>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous"></script>
+        
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
 
@@ -40,5 +45,17 @@ Vista::mostrar('plantilla/aside.php');
     Vista::mostrar('plantilla/footer.php');
     ?>
 </div>
+<script src="./assets/js/jq-toast.min.js"></script>
+
+<script type="text/javascript" src="./assets/js/moment.min.js"></script>	
+
+<!-- Bootstrap 4 -->
+<script src="./assets/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="./assets/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="./assets/js/demo.js"></script>
+
+<?php require_once './vistas/plantilla/js.php'; ?>
 </body>
 </html>
