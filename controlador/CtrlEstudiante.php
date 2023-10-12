@@ -44,10 +44,15 @@ class CtrlEstudiante extends Controlador {
         # echo "Agregando..";
         $obj = new ProgramaEstudio;
         $programas = $obj->mostrar();
-        $datos= [
-            'titulo'=>'Nuevo Estudiante',
-            'programas'=>$programas['data'],
-            'contenido'=>$this->mostrar('estudiantes/formulario.php',null,true),
+        $datos = [
+            // 'datos'=>$data['data'][0],
+            'programas'=>$programas['data']
+        ];
+        $home = $this->mostrar('estudiantes/formulario.php',$datos,true);
+
+         $datos= [
+            'titulo'=>'Editar Estudiante',
+            'contenido'=>$home,
             'menu'=>$_SESSION['menu']
         ];
     $this->mostrar('./plantilla/home.php',$datos);

@@ -44,6 +44,9 @@ class Persona extends Modelo {
     public function guardar(){
         $this->setTabla('personas');
         $datos = $this->getDatos();
+        $miClave = $this->generarClave('123456');
+        $datos+=["password"=>"'$miClave'"];   # Se genere la Clave POR DEFECTO
+        # var_dump($datos);exit;
         return $this->insert($datos);
     }
     public function editar(){
@@ -71,6 +74,7 @@ class Persona extends Modelo {
         ];
     }
     public function validar($login, $clave){
+        $clave = $this->generarClave($clave);
         $sql = "Select * from $this->_tabla
             WHERE usuario='$login' AND password='$clave'";
         
@@ -93,7 +97,18 @@ class Persona extends Modelo {
             return $this->ejecutarSql()['data'];
 
         }
-
-   
     }
+    public function cambiarClave($clave){
+        $miClave = $this->generarClave($clave);
+        $datos = [
+            'password'=>"'$miClave'"
+        ];
+
+        $wh = "id=$this->id";
+        return $this->update($wh,$datos);
+    }
+    private function generarClave($clave){
+        return substr (md5($clave),0,15);     # Cambiamos NUESTRO ALGORITMO
+    }
+
 }

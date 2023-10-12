@@ -8,6 +8,8 @@
 <body>
     <h1><?=$titulo?></h1>
     <h3>bienvenido <?=$usuario?></h3>
+    <br>
+    
     
     <h3>Opciones:</h3>
     <ul>
