@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
-</head>
-<body>
-    <h1><?=$titulo?></h1>
-<a href="?ctrl=CtrlEstado&accion=nuevo">Nuevo Estado</a>
+
+<a href="#" class="btn btn-primary nuevo">
+    <i class="fa fa-plus"></i> 
+    Nuevo Estado
+</a>
     <table class="table">
         <tr>
             <th>Id</th>
@@ -27,11 +21,15 @@ foreach ($datos as $d) {
         <?=$d['nombre']?>
     </td>
     <td>
-        <a href="?ctrl=CtrlEstado&accion=editar&id=<?=$d['id']?>">
+        <a data-id="<?=$d["id"]?>" href="#" class="btn btn-success editar">
+            <i class="fa fa-edit"></i> 
             Editar
         </a>
-        <a href="?ctrl=CtrlEstado&accion=eliminar&id=<?=$d['id']?>">Eliminar</a>
         
+        <a data-id="<?=$d["id"]?>" data-nombre="<?=$d["nombre"]?>" href="#" class="btn btn-danger eliminar">
+          <i class="fa fa-trash"></i>  
+          Eliminar
+        </a>
     </td>
 </tr>
 
@@ -42,5 +40,3 @@ foreach ($datos as $d) {
     </table>
 
     <a href="?">Retornar</a>
-</body>
-</html>
