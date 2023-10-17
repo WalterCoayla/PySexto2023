@@ -67,6 +67,7 @@ abstract class Helper
             'CtrlCtaContable'=>'Cuentas Contables',
             'CtrlConceptoPago'=>'Conceptos de Pago',
             'CtrlEstudiante'=>'Estudiante',
+            'CtrlCurso'=>'Cursos',
         ]; 
     }
     private static function getMenuTramiteAdministrativo(){
