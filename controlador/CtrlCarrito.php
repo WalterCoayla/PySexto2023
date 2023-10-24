@@ -48,5 +48,4 @@ class CtrlCarrito extends Controlador {
         $this->index();
     }
 
-    
 }
