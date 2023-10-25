@@ -18,6 +18,9 @@
         crossorigin="anonymous"></script>
         <!-- ChartJS -->
 <script src="./assets/js/chart.js/Chart.min.js"></script>
+<script src="./assets/js/jsPDF/jspdf.debug.js"></script>
+<script src="./assets/js/jsPDF/jspdf.plugin.autotable3.1.1.min.js"></script>
+
         
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">

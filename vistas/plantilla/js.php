@@ -134,28 +134,19 @@
         $('#imprimirPDF').click(function (e) { 
             e.preventDefault();
             let link=$(this).html();
-            alert(link)
+            // alert(link)
             $(this).html('<i class="fa fa-spinner"></i> Descargando...');
-            var datos= <?=json_encode(isset($data)?$data:'');?>;
-            let titulo=$('#titulo').html();
+            var datos= <?=json_encode(isset($datos)?$datos:'');?>;
+            let titulo=$('#titulo').html().trim();
 
-            /**
-             * Añadiendo imagenes
-             */
-             // var logo = new Image();
-
-            // logo.src = 'dist/img/prod-1.jpg';
-            // logo.src = 'recursos/images/logo.JPG';
-
-             /**
-              * Fin añadir imagen
-              */
             var doc = new jsPDF('p')
                  // doc.addImage(logo, 'JPEG', 10, 10,20,22);
-
+                imprimirEncabezado(doc)
+                imprimirPie(doc)
                 doc.setFontSize(20)
                 doc.setTextColor(255, 0, 0) // Rojo
-                doc.text(35, 25, titulo)
+                doc.text(60, 25, titulo)
+                // alert(titulo)
                 let columnas =[]
                 columnas.push( Object.keys(datos[0]) )
 
@@ -175,7 +166,21 @@
             
         });
 
-
+        function imprimirEncabezado(doc){
+            // alert('Imprimiendo Cabecera')
+            doc.setFontSize(10)
+            doc.setTextColor(255, 0, 0) // Rojo
+            doc.text(10, 15, 'Sistema IES-JCM')
+            doc.line(10,17,200,17)
+        }
+        function imprimirPie(doc){
+            // alert('Imprimiendo Cabecera')
+            doc.setFontSize(10)
+            doc.setTextColor(0, 0, 255) // Azul
+            doc.text(100, 280, 'CopyRight 2023')
+            doc.line(10,273,200,273)
+        }
 
   });
+
 </script>

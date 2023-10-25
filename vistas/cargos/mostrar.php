@@ -4,7 +4,7 @@
     <i class="fa fa-plus"></i> 
     Nuevo Cargo 
 </a>
-<a href="#" class="btn btn-success imprimir">
+<a href="#" class="btn btn-success" id="imprimirPDF">
     <i class="fa fa-print"></i> 
     Imprimir 
 </a>
