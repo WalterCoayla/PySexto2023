@@ -7,12 +7,13 @@ require_once './assets/Helper.php';
 class CtrlPersona extends Controlador {
     public function index(){
 
-        $home = $this->mostrar('personas/login.php',null,true);
+        $this->mostrar('personas/login.php');
+        /* $home = $this->mostrar('personas/login.php',null,true); */
 
-        $datos = [
+        /* $datos = [
             'contenido'=>$home
         ];
-        $this->mostrar('plantilla/home.php',$datos);
+        $this->mostrar('plantilla/home.php',$datos); */
 
     }
     public function login(){

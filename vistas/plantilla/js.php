@@ -72,6 +72,7 @@
                 alert("error");
             });
         });
+        
         $('#cambiarClave').click( function(e){ 
           e.preventDefault();
            let linkNuevo=$(this).html();
@@ -118,6 +119,29 @@
             $('#modal-eliminar').modal('show');
             
         });
+
+        /*
+            LOGIN
+        */
+        $('.login').click( function(){ 
+            let linkNuevo=$(this).html();
+            // alert(linkNuevo)
+            $(this).html('<i class="fa fa-spinner"></i> Cargando...');
+            // $('.modal-title-login').html('Login');
+            $.ajax({
+                url:'index.php',
+                type:'get',
+                data:{'ctrl':'CtrlPersona','accion':'index'}
+            }).done(function(datos){
+                $('.nuevo').html(linkNuevo);
+                $('#body-form-login').html(datos);
+                $('#modal-login').modal('show');
+            }).fail(function(){
+                $('.nuevo').html(linkNuevo);
+                alert("error");
+            });  
+        });
+        
         $('.cambiarClave').click( function(){ 
             var id= $(this).data('id');
             var nombre= $(this).data('nombre');

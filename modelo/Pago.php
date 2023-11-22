@@ -16,7 +16,9 @@ class Pago extends Modelo {
         return $this->getAll();
     }
     public function getMontosXConceptoPago(){
+        
         $sql = "Select * from v_montoRecaudado_x_conceptoPago";
+        //$sql = "Select id, nombre, apellido, direccion from persona";
         $this->setSql($sql);
         return $this->ejecutarSql()['data'];
     }

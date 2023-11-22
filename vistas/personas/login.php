@@ -1,7 +1,7 @@
-<div class="login-box">
+<!-- <div class="login-box">
   <div class="login-logo">
     <a href="#"><b>Login</b></a>
-  </div>
+  </div> -->
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
@@ -53,6 +53,6 @@
     </div>
     <!-- /.login-card-body -->
   </div>
-</div>
+<!-- </div> -->
 <!-- /.login-box -->
 
