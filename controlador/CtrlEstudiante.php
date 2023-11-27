@@ -120,4 +120,12 @@ class CtrlEstudiante extends Controlador {
         $this->index();
 
     }
+    public function seleccionarModalidad(){
+        // $id = $_GET['id'];
+        echo "Seleccionando modalidad para ". $_SESSION['id'];
+    }
+    public function imprimirRequisitos(){
+        // $id = $_GET['id'];
+        echo "Imprimiendo requisitos para ". $_SESSION['id'];
+    }
 }

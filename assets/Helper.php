@@ -52,6 +52,27 @@ abstract class Helper
                 }   
                 break;
             
+            case '3':   # Titulaciones
+                switch ($idP) {
+                    case '1':   #Administrador
+                        $menu=self::getMenuTitulacionAdmin();
+                        break;
+                    case '2':   #Docente
+                        $menu=self::getMenuTitulacionDocente();
+                        break;
+                    case '3':   #Estudiante
+                        $menu=self::getMenuTitulacionEstudiante();
+                        break;
+                    case '4':   #Administrativo
+                        $menu=self::getMenuTitulacionAdministrativo();
+                        break;
+                    
+                    default:    #Visitante
+                        $menu=self::getMenuTitulacionVisitante();
+                        break;
+                }   
+                break;
+            
             default:
                 # code...
                 break;
@@ -132,6 +153,19 @@ abstract class Helper
     private static function getMenuCajaVisitante(){
         return [
         ]; 
+    }
+    private static function getMenuTitulacionEstudiante(){
+        return [
+            'CtrlEstudiante&accion=seleccionarModalidad'=>'Seleccionar Modalidad',
+            'CtrlEstudiante&accion=imprimirRequisitos'=>'Imprimir Requisitos',
+        ]; 
+    }
+    private static function getMenuTitulacionDocente(){
+        return [
+            'CtrlDocente&accion=juradoExamen'=>'Bach. x Examen',
+            'CtrlDocente&accion=juradoTrabajo'=>'Bach. x Trabajo',
+            /* 'CtrlDocente&accion=jurado'=>'Ver bachilleres', */
+        ];
     }
 
 }
