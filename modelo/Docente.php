@@ -60,7 +60,10 @@ class Docente extends Persona {
     } */
 
     public function getBachilleresExamen($id){
-        $sql = "Select * from v_bach_examen where idjurado=$id";
+       //  $sql = "Select * from v_bach_examen where idjurado=$id";
+        $sql = "Select id, nombres, apellidos, 
+            programaEst,añoTermino, notaTeoriaJur,notaPracticaJur, idJuradoExamen
+            from v_bach_examen where idjurado=$id";
         $this->setSql($sql);
         return $this->ejecutarSQL();
     }

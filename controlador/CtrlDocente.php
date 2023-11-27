@@ -35,7 +35,8 @@ class CtrlDocente extends Controlador {
         $datos = [
             'titulo'=>'Bachilleres por Examen de suficiencia',
             'contenido'=>$home,
-            'menu'=>$_SESSION['menu']
+            'menu'=>$_SESSION['menu'],
+            'datos'=>$data
         ];
         $this->mostrar('./plantilla/home.php',$datos);
     }
